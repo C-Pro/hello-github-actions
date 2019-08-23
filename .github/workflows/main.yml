@@ -9,4 +9,13 @@ jobs:
     - uses: ./action-a
       env:
         MY_NAME: "Mona"
+  test:
+    name: Test multi-container action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: run postgres
+      run: docker-compose up -d
+    - uses: ./action-compose
+
 
