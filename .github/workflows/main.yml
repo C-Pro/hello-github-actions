@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: run postgres
-      run: docker-compose up -d
+      run: cd ./action-compose && docker-compose up -d
     - uses: ./action-compose
 
 
