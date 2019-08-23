@@ -3,7 +3,7 @@
 # try to ping postgres for 60 seconds
 for try in `seq 1 60`
 do
-    psql -h postgres -U postgres postgres -c "select now()+interval '42 days';"
+    docker run --network container:postgres-ci postgres psql -h postgres -U postgres postgres -c "select now()+interval '42 days';"
     if [ $? -eq 0 ]
     then
         exit 0

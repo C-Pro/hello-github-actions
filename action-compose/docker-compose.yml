@@ -3,3 +3,4 @@ version: '2'
 services:
     postgres:
         image: postgres
+        container-name: postgres-ci

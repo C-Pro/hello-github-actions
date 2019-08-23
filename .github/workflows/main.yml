@@ -16,6 +16,7 @@ jobs:
     - uses: actions/checkout@master
     - name: run postgres
       run: cd ./action-compose && docker-compose up -d
-    - uses: ./action-compose
+    - name: test pg connection
+      run: ./action-compose/test.sh
 
 
