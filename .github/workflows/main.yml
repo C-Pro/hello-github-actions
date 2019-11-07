@@ -9,6 +9,13 @@ jobs:
     - uses: ./action-a
       env:
         MY_NAME: "Mona"
+    - name: Trigger deploy
+      env:
+        DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+      run: |
+        curl --insecure https://$DEPLOY_HOST/deploy/bot?secret=$DEPLOY_KEY
+
   test:
     name: Test multi-container action
     runs-on: ubuntu-latest
